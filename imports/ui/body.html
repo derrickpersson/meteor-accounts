@@ -1,8 +1,8 @@
 <body>
     {{#if currentUser }}
-        <p> Hello! You're logged in! </p>
+        {{> userDashboard }}
     {{else}}
         {{> register }}
-        {{> login }}
+        <!-- {{> login }} -->
     {{/if}}
 </body>

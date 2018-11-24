@@ -1,3 +1,3 @@
 import "./body.html";
-import "./register.html";
-import "../lib/config/accountsConfig.js";
+import "./register.js";
+import "./userDashboard.js";
