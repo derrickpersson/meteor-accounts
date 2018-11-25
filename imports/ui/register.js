@@ -29,6 +29,8 @@ if (Meteor.isClient) {
             }, function(error) {
                 if(error){
                     console.error(error);
+                } else {
+                    Router.go("/");
                 }
             });
         }
