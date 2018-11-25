@@ -24,13 +24,13 @@ If you need to install Meteor please see [meteor.com](https://www.meteor.com/ins
 
 ### Routes
 
-![Dashboard](https://github.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/userDashboard.png "Users' Dashboard")
+![Dashboard](https://raw.githubusercontent.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/userDashboard.png "Users' Dashboard")
 `/` - Home, displays 'userDashboard' template if logged in, else redirects to `/register`
 
-![Register](https://github.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/register.png "Registration Page")
+![Register](https://raw.githubusercontent.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/register.png "Registration Page")
 `/register` - Registration page
 
-![Login](https://github.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/login.png "Login Page")
+![Login](https://raw.githubusercontent.com/derrickpersson/meteor-accounts/master/client/assets/img/photos/login.png "Login Page")
 `/login` - Login page for returning users
 
 ### Future Improvements & Struggles
