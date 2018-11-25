@@ -27,9 +27,9 @@ if (Meteor.isClient) {
         
         'change .form-control'(event) {
             if(event.target.value) {
-                $('.form-control').parent().addClass('open');
+                $(event.target).parent().addClass('open');
             } else {
-                $('.form-control').parent().removeClass('open');
+                $(event.target).parent().removeClass('open');
             }
         }
     })
