@@ -10,7 +10,7 @@ if (Meteor.isServer) {
     });
 
     Accounts.validateNewUser((user) => {
-        if(user.email) {
+        if(user.emails && user.emails.length >= 1) {
             return true;
         } else {
             throw new Meteor.Error(403, 'Your email must not be blank');
