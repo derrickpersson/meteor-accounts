@@ -1,4 +1,5 @@
 import assert from "assert";
+import "./user.js";
 
 describe("simple-account", function () {
   it("package.json has correct name", async function () {
