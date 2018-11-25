@@ -1,3 +1,5 @@
+import { Meteor } from "meteor/meteor";
+
 if (Meteor.isServer) {
     Accounts.validateNewUser((user) => {
         if(user.username && user.username.length >= 3) {
@@ -7,23 +9,17 @@ if (Meteor.isServer) {
         }
     });
 
-    // Accounts.validateNewUser((user) => {
-    //     if (user.password && user.password >= 5){
-    //         return true;
-    //     } else {
-    //         throw new Meteor.Error(403, 'Your password must be at least 5 characters long');
-    //     }
-    // });
+    Accounts.validateNewUser((user) => {
+        // TODO: validate terms and conditions checked
+        return true;
+    })
 
-    // Accounts.validateNewUser((user) => {
-    //     if(user.password2 && user.password2 >= 5) {
-    //         if(user.password2 === user.password){
-    //             return true;
-    //         } else {
-    //             throw new Meteor.Error(403, 'Please enter the same password as above');
-    //         }
-    //     } else {
-    //         throw new Meteor.Error(403, 'Your password must be at least 5 characters long');
-    //     }
-    // });
+    Meteor.methods({
+        'user.insert'(data, cb) {
+            if ( (data.password && data.password.length < 5) || (data.password2 && data.password2.length < 5) && data.password !== data.password2 ) {
+                throw new Meteor.Error(403, 'Please check your information and re-submit');
+            }
+            return Accounts.createUser(data, cb);
+        }
+    })
 }
