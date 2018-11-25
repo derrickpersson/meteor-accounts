@@ -20,7 +20,7 @@ if (Meteor.isClient) {
             const password = event.target["register-password"].value;
             const password2 = event.target["register-password2"].value;
             const terms = event.target["register-terms"].checked;
-            Meteor.call('user.register', {
+            Accounts.createUser({
                 username,
                 email,
                 password,
