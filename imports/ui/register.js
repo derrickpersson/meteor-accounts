@@ -1,5 +1,6 @@
 import { Template } from "meteor/templating";
 import { Meteor } from "meteor/meteor";
+
 import "jquery-validation";
 
 import "./register.html";
@@ -18,8 +19,8 @@ if (Meteor.isClient) {
             const email = event.target["register-email"].value;
             const password = event.target["register-password"].value;
             const password2 = event.target["register-password2"].value;
-            const terms = event.target["register-terms"].value;
-            Meteor.call('user.insert', {
+            const terms = event.target["register-terms"].checked;
+            Meteor.call('user.register', {
                 username,
                 email,
                 password,
