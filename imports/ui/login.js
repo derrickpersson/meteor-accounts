@@ -13,23 +13,26 @@ if (Meteor.isClient) {
     Template.login.events({
         'submit form'(event) {
             event.preventDefault();
-            const username = event.target["login-username"].value;
-            const password = event.target["login-password"].value;
+            const target = event.target;
+            const username = target["login-username"].value;
+            const password = target["login-password"].value;
             Meteor.loginWithPassword(
                 username,
                 password, 
                 function(error) {
                     if(error){
-                        console.error(error);
+                        // TODO: Implement proper UI for errors along with proper error messaging
+                        alert(error);
                     }
             });
         },
         
         'change .form-control'(event) {
-            if(event.target.value) {
-                $(event.target).parent().addClass('open');
+            const target = event.target;
+            if(target.value) {
+                $(target).parent().addClass('open');
             } else {
-                $(event.target).parent().removeClass('open');
+                $(target).parent().removeClass('open');
             }
         }
     })
