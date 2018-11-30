@@ -20,6 +20,8 @@ if (Meteor.isServer) {
     Accounts.onCreateUser((options, user) => {
         if ( options.terms ){
             const customizedUser = Object.assign({ terms: options.terms }, user);
+
+            // Replicate native .onCreateUser method functionality in case used in the future.
             if(options.profile) {
                 customizedUser.profile = options.profile;
             }

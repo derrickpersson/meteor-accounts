@@ -15,11 +15,12 @@ if (Meteor.isClient) {
     Template.register.events({
         'submit form'(event) {
             event.preventDefault();
-            const username = event.target["register-username"].value;
-            const email = event.target["register-email"].value;
-            const password = event.target["register-password"].value;
-            const password2 = event.target["register-password2"].value;
-            const terms = event.target["register-terms"].checked;
+            const target = event.target;
+            const username = target["register-username"].value;
+            const email = target["register-email"].value;
+            const password = target["register-password"].value;
+            const password2 = target["register-password2"].value;
+            const terms = target["register-terms"].checked;
             Accounts.createUser({
                 username,
                 email,
@@ -28,7 +29,8 @@ if (Meteor.isClient) {
                 terms,
             }, function(error) {
                 if(error){
-                    console.error(error);
+                    // TODO: Implement proper UI for errors along with proper error messaging
+                    alert(error);
                 } else {
                     Router.go("/");
                 }
